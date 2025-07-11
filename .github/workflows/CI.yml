@@ -1,7 +1,8 @@
 name: CI Workflow
 on:
   push:
-    branches:[master]
+    branches:
+      - master
 jobs:
   build_Job:
     runs-on : ubuntu-latest

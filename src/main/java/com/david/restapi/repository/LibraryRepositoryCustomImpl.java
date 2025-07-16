@@ -11,9 +11,13 @@ import java.util.List;
 
 
 public class LibraryRepositoryCustomImpl implements LibraryRepositoryCustom{
-    @Lazy
-    @Autowired
+
     LibraryRepository libraryRepository;
+
+    public LibraryRepositoryCustomImpl(@Lazy LibraryRepository libraryRepository ){
+
+        this.libraryRepository = libraryRepository;
+    }
 
     @Override
     public List<Library> findAllByName(String authorName) {

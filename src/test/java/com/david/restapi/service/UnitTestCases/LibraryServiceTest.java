@@ -26,13 +26,13 @@ class LibraryServiceTest {
 
     @Test
     void testBuildUniqueID(){
-        String id = libraryService.BuildUniqueID("Z",24);
+        String id = libraryService.buildUniqueID("Z",24);
         assertEquals("OLDZ24", id);
     }
 
     @Test
     void testBuildUniqueIDWithoutZ(){
-        String id = libraryService.BuildUniqueID("abc",24);
+        String id = libraryService.buildUniqueID("abc",24);
         assertEquals("abc24", id);
     }
 

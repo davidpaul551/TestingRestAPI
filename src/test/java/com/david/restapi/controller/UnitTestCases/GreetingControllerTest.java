@@ -18,7 +18,7 @@ class GreetingControllerTest {
         Greeting greeting = greetingController.greetings("David");
 
         assertNotNull(greeting);
-        assertEquals("Hey Hii David",greeting.getContent());
+        assertEquals("Hey Hii Davi",greeting.getContent());
         assertTrue(greeting.getId()>0);
 
     }

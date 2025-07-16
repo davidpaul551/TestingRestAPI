@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.10.1</version> <!-- or latest -->
+			<version>7.10.1</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -85,7 +85,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- Surefire Plugin (merged properly) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -102,11 +101,16 @@
 			</plugin>
 
 
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>3.5.2</version>
 				<configuration>
+					<includes>
+						<include>**/*IT.java</include>
+						<include>**/*IntegrationTest.java</include> <!-- Add this if your tests use this naming -->
+					</includes>
 					<systemPropertyVariables>
 						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
 					</systemPropertyVariables>
@@ -128,6 +132,10 @@
 					</execution>
 				</executions>
 			</plugin>
+
+
+
+
 
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>

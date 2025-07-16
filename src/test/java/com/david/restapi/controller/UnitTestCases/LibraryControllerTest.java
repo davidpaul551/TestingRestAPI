@@ -42,7 +42,7 @@ class LibraryControllerTest {
         library.setIsbn("abc");
         String id = "abc23";
 
-        when(libraryService.BuildUniqueID("abc",23)).thenReturn(id);
+        when(libraryService.buildUniqueID("abc",23)).thenReturn(id);
         when(libraryService.checkBookAlreadyExist(id)).thenReturn(false);
         when(libraryRepository.save(any(Library.class))).thenReturn(library);
 
@@ -50,7 +50,7 @@ class LibraryControllerTest {
 
         AddResponse responseBody = response.getBody();
         assertEquals(HttpStatus.CREATED , response.getStatusCode());
-        assertEquals("Book saved Successfully",responseBody.getMsg());
+        assertEquals("Book saved Successful",responseBody.getMsg());
         assertEquals(id, response.getBody().getId());
         assertEquals(id,response.getHeaders().getFirst("uniqueID"));
 
@@ -67,7 +67,7 @@ class LibraryControllerTest {
         library.setAuthor("magnus");
         library.setBook_name("opus");
 
-        when(libraryService.BuildUniqueID("abc",23)).thenReturn(id);
+        when(libraryService.buildUniqueID("abc",23)).thenReturn(id);
         when(libraryService.checkBookAlreadyExist(id)).thenReturn(true);
 
         ResponseEntity<AddResponse> response = libraryController.AddBook(library);

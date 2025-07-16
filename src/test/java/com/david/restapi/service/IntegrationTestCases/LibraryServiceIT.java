@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class LibraryServiceIT {
 
 
@@ -18,14 +18,14 @@ class LibraryServiceIT {
 
     @Test
     void testBuildUniqueIDWhenStartsWithZ(){
-        String id = libraryService.BuildUniqueID("Z" ,123);
+        String id = libraryService.buildUniqueID("Z" ,123);
         assertEquals("OLDZ123",id);
 
     }
 
     @Test
     void testBuildUniqueID_WhenDoesNotStartWithZ() {
-        String id = libraryService.BuildUniqueID("abc", 123);
+        String id = libraryService.buildUniqueID("abc", 123);
         assertEquals("abc123", id);
     }
 

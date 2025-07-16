@@ -14,7 +14,7 @@ public class LibraryService {
     @Autowired
     LibraryRepository libraryRepository;
 
-    public String BuildUniqueID(String isbn, int aisle){
+    public String buildUniqueID(String isbn, int aisle){
 
         if(isbn.startsWith("Z")){
             return "OLD"+isbn+aisle;

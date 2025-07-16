@@ -28,9 +28,9 @@ public class LibraryController {
     AddResponse addResponse;
 
     @PostMapping("/addBook")
-        public ResponseEntity<AddResponse> AddBook(@RequestBody Library library) {
+        public ResponseEntity<AddResponse> addBook(@RequestBody Library library) {
 
-            String id = libraryService.BuildUniqueID(library.getIsbn(), library.getAisle());
+            String id = libraryService.buildUniqueID(library.getIsbn(), library.getAisle());
             addResponse = new AddResponse();
 
             if (!libraryService.checkBookAlreadyExist(id)) {

@@ -53,6 +53,9 @@ jobs:
         run: mvn sonar:sonar -Dsonar.projectKey=testing551_junit -Dsonar.organization=testing551 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.reportPaths=target/site/jacoco/jacoco.xml
 
       - name: Print SonarCloud URL
-        run:
-            echo "View SonarCloud analysis results here: https://sonarcloud.io/dashboard?id=testing551_junit"
+        run: |
+          echo "View SonarCloud analysis results here: https://sonarcloud.io/dashboard?id=testing551_junit"
+      
+
+
 

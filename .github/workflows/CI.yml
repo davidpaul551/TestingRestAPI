@@ -50,13 +50,7 @@ jobs:
         run: mvn clean verify
 
       - name: Run SonarCloud analysis
-        run: >
-            mvn sonar:sonar
-            -Dsonar.projectKey=testing551_junit
-            -Dsonar.organization=testing551
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.coverage.jacoco.reportPaths=target/site/jacoco/jacoco.xml
+        run: mvn sonar:sonar -Dsonar.projectKey=testing551_junit -Dsonar.organization=testing551 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.reportPaths=target/site/jacoco/jacoco.xml
 
       - name: Print SonarCloud URL
         run:

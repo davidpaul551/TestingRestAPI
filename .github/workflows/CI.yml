@@ -24,7 +24,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-sonar-analysis:
+sonar_analysis:
   runs-on: windows-latest
   needs: build_job
 
